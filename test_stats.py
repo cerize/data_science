@@ -3,9 +3,12 @@
 import unittest
 import numpy as np
 import stats as st
+import scipy.stats
+
+
 
 class StatsTest(unittest.TestCase):
-    list_odd = [20, 3, 5, 90, 8, 8, 4]
+    list_odd = [20, 3, 5, 90, 8, 8, 3]
     list_even = [20, 3, 5, 90, 1, 1]
 
     def test_mean(self):
@@ -25,3 +28,23 @@ class StatsTest(unittest.TestCase):
         numpy_value = np.median(self.list_even)
         
         self.assertEqual(my_value, numpy_value)
+    
+    def test_mode_unique(self):
+        l = [2, 3, 4, 5, 4, 6]
+        my_value = st.mode(l)
+
+        self.assertEqual(my_value[0], [4])
+    
+    def test_mode_multiple(self):
+        l = [2, 3, 4, 5, 4, 6, 5]
+        my_value = st.mode(l)
+
+        self.assertEqual(my_value[0], [4, 5])
+
+    def test_mode_none(self):
+        l = [1, 2, 3, 4, 5]
+        my_value = st.mode(l)
+
+        self.assertEqual(my_value[0], [])
+
+    

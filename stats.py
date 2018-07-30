@@ -1,5 +1,6 @@
 
 import numpy as np
+import math
 
 def mean(values):
     try:
@@ -22,7 +23,24 @@ def median(values):
     return middle_value
 
 def mode(values):
-    return 'todo'
+    unique_values = set(values)
+    dic = {}
+    for elem in unique_values:
+        dic[elem] = values.count(elem)
+
+    modals = []
+    max = 0
+
+    for k,v in dic.items():
+        if v > max:
+            modals = [k]
+            max = v
+        elif v == max:
+            modals.append(k)
+    
+    if len(modals) == len(unique_values):
+        modals = []
+    return modals, max
 
 def variance(values):
     return 'todo'
