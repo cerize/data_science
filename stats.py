@@ -74,6 +74,19 @@ def correlation(A, B):
     std_B = standard_deviation(B)
     cov_A_B = covariance(A, B)
     corr = cov_A_B / (std_A * std_B)
-    print('corr ddd', corr)
     return corr
 
+def Gaussian_distribution(values):
+    return 'todo'
+
+def interquartile_range(values):
+    return 'todo'
+
+def t_distribution(values):
+    return 'todo'
+
+def chi_squared_distrubution(values):
+    return 'todo'
+
+def Bayes():
+    return 'todo'
