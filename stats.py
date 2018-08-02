@@ -37,7 +37,7 @@ def mode(values):
             max = v
         elif v == max:
             modals.append(k)
-    
+
     if len(modals) == len(unique_values):
         modals = []
     return modals, max
@@ -53,4 +53,27 @@ def standard_deviation(values):
     """Assume degree of freedom = 0"""
     v = variance(values)
     return math.sqrt(v)
+
+def covariance(A, B):
+    """Assume A and B are the same length"""
+    n = len(A)
+    mean_of_A = mean(A)
+    mean_of_B = mean(B)
+    mean_deviation_A = [(x - mean_of_A) for x in A]
+    mean_deviation_B = [(x - mean_of_B) for x in B]
+    deviation_multiplication = [x * y for x, y in zip(mean_deviation_A, mean_deviation_B)]
+    cov  = sum(deviation_multiplication) / n
+    return cov
+
+def correlation(A, B):
+    """
+    Assume A and B are the same length
+    Assume non-corrected std
+    """
+    std_A = standard_deviation(A)
+    std_B = standard_deviation(B)
+    cov_A_B = covariance(A, B)
+    corr = cov_A_B / (std_A * std_B)
+    print('corr ddd', corr)
+    return corr
 
