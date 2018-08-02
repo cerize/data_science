@@ -47,4 +47,18 @@ class StatsTest(unittest.TestCase):
 
         self.assertEqual(my_value[0], [])
 
+    def test_variance(self):
+        """Assume degree of freedom = 0"""
+        l = [1,2,3,4,5,5,4,3,3,1,2]
+        my_value = st.variance(l)
+        numpy_value = np.var(l)
+
+        self.assertEquals(my_value, numpy_value)
     
+    def test_standard_deviation(self):
+        """Assume degree of freedom = 0"""
+        l = [1,2,3,4,5,5,4,3,3,1,2]
+        my_value = st.standard_deviation(l)
+        numpy_value = np.std(l)
+
+        self.assertEquals(my_value, numpy_value)

@@ -43,8 +43,14 @@ def mode(values):
     return modals, max
 
 def variance(values):
-    return 'todo'
+    """Assume degree of freedom = 0"""
+    m = mean(values)
+    n = len(values)
+    mean_deviation_list = [(x - m)**2 for x in values]
+    return sum(mean_deviation_list) / n 
 
-def standard_variation(values):
-    return 'todo'
+def standard_deviation(values):
+    """Assume degree of freedom = 0"""
+    v = variance(values)
+    return math.sqrt(v)
 
